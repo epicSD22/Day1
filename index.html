@@ -7,31 +7,83 @@
         body {
             margin: 0;
             height: 100vh;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: radial-gradient(circle, #1a2a6c, #000428);
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
         }
+
         h1 {
             font-size: 3.5em;
-            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
         }
+
         p {
             font-size: 1.5em;
+            animation: float 3s ease-in-out infinite;
         }
+
         .year {
             color: gold;
-            font-weight: bold;
+        }
+
+        /* Glowing text */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px gold, 0 0 20px gold;
+            }
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 40px gold;
+            }
+        }
+
+        /* Floating text */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: gold;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
+
     <div>
-        <h1>🎉 Happy New Year <span class="year">2026</span> 🎉</h1>
+        <h1>🎉 Happy New Year <span class="year">2025</span> 🎉</h1>
         <p>Wishing you happiness, success, and joy!</p>
     </div>
+
+    <script>
+        // Create confetti
+        for (let i = 0; i < 40; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor =
+                ["gold", "red", "blue", "green", "pink"][Math.floor(Math.random() * 5)];
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(confetti);
+        }
+    </script>
+
 </body>
 </html>
