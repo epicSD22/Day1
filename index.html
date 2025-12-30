@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Happy New Year</title>
@@ -16,22 +17,22 @@
             color: white;
             text-align: center;
         }
-
+        
         h1 {
             font-size: 3.5em;
             animation: glow 2s ease-in-out infinite alternate;
         }
-
+        
         p {
             font-size: 1.5em;
             animation: float 3s ease-in-out infinite;
         }
-
+        
         .year {
             color: gold;
         }
-
         /* Glowing text */
+        
         @keyframes glow {
             from {
                 text-shadow: 0 0 10px gold, 0 0 20px gold;
@@ -40,15 +41,21 @@
                 text-shadow: 0 0 20px #fff, 0 0 40px gold;
             }
         }
-
         /* Floating text */
+        
         @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
-
         /* Confetti */
+        
         .confetti {
             position: absolute;
             width: 10px;
@@ -57,7 +64,7 @@
             top: -10px;
             animation: fall linear infinite;
         }
-
+        
         @keyframes fall {
             to {
                 transform: translateY(110vh) rotate(360deg);
@@ -65,8 +72,9 @@
         }
     </style>
 </head>
-<body>
 
+<body>
+    <h3 align="center" , style="background-color: aqua;">Suraj Deshmukh</h3>
     <div>
         <h1>🎉 Happy New Year <span class="year">2025</span> 🎉</h1>
         <p>Wishing you happiness, success, and joy!</p>
@@ -78,12 +86,12 @@
             const confetti = document.createElement("div");
             confetti.classList.add("confetti");
             confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.backgroundColor =
-                ["gold", "red", "blue", "green", "pink"][Math.floor(Math.random() * 5)];
+            confetti.style.backgroundColor = ["gold", "red", "blue", "green", "pink"][Math.floor(Math.random() * 5)];
             confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
             document.body.appendChild(confetti);
         }
     </script>
 
 </body>
+
 </html>
